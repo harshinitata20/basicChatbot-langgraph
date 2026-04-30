@@ -16,6 +16,9 @@ class UIConfig:
     def get_groq_model_option(self):
         return [x.strip() for x in self.config["DEFAULT"].get("GROQ_MODEL_OPTIONS", "llama3-8b-8192").split(",")]
 
+    def get_groq_tool_compatible_models(self):
+        return [x.strip() for x in self.config["DEFAULT"].get("GROQ_TOOL_COMPATIBLE_MODELS", "llama-3.1-8b-instant").split(",")]
+
     def get_page_title(self):
         return self.config["DEFAULT"].get("PAGE_TITLE", "LangGraphAgentic")
 
