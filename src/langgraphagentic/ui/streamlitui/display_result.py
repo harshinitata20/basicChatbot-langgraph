@@ -39,3 +39,11 @@ class DisplayResult:
                     st.markdown(ai_message)
 
             return ai_message
+
+        elif self.usecase == "AI News Summarizer":
+            with st.spinner("Fetching and summarizing AI news..."):
+                response = self.graph.invoke({"messages": [HumanMessage(content=self.user_message)]})
+            ai_message = response["messages"][-1].content
+            st.subheader(f"AI News — {self.user_message}")
+            st.markdown(ai_message)
+            return ai_message
